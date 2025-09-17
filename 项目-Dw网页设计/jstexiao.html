@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>行为特效展示页 - 好吃蛋糕店</title>
+  <style>
+    body {
+      font-family: "微软雅黑", sans-serif;
+      text-align: center;
+      margin-top: 80px;
+      background-color: #fff0f5;
+      transition: background-color 0.6s ease;
+    }
+
+    h1 {
+      color: #d1477f;
+      transition: color 0.6s ease;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background-color: #f08080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #cd5c5c;
+    }
+
+    a {
+      display: block;
+      margin-top: 50px;
+      color: #d1477f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>彩蛋：点击下方按钮</h1>
+  <button class="btn" onclick="changeColors()">恭喜你获得：本月蛋糕8折优惠券！</button>
+
+  <a href="index.html">返回首页</a>
+
+  <script>
+    function changeColors() {
+      document.body.style.backgroundColor = '#add8e6';
+      document.querySelector('h1').style.color = '#a0522d';
+    }
+  </script>
+
+</body>
+</html>

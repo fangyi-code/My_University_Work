@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>模板页面</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: "微软雅黑", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    table.layout {
+      width: 100%;
+      height: 100vh;
+      border-collapse: collapse;
+    }
+
+    td.sidebar {
+      width: 200px;
+      background-color: #f08080;
+      vertical-align: top;
+      padding: 20px 10px;
+    }
+
+    td.main {
+      padding: 20px;
+      vertical-align: top;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 10px 0;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .sidebar a:hover {
+      background-color: #cd5c5c;
+    }
+
+    .footer {
+      background-color: #f08080;
+      text-align: center;
+      color: white;
+      padding: 10px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <table class="layout">
+    <tr>
+      <td class="sidebar">
+		<a href="模板.html">备用首页</a>
+        <a href="index.html">首页</a>
+        <a href="frame.html">菜单</a>
+        <a href="order.html">预订</a>
+        <a href="about.html">关于我们</a>
+	    <h4>内容页</h4>
+		<a href="video.html">视频</a>
+		<a href="layout.html">品质保证</a>
+		<a href="jstexiao.html">彩蛋1</a>
+		<a href="xwtexiao2.html">彩蛋2</a>
+      </td>
+      <td class="main">
+        <!-- TemplateBeginEditable name="mainContent" -->
+        <p>内容</p>
+        <!-- TemplateEndEditable -->
+		  <a href="index.html">返回首页</a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="footer">
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>好吃蛋糕店</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: "微软雅黑", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    table.layout {
+      width: 100%;
+      height: 100vh;
+      border-collapse: collapse;
+    }
+
+    td.sidebar {
+      width: 200px;
+      background-color: #f08080;
+      vertical-align: top;
+      padding: 20px 10px;
+    }
+
+    td.main {
+      padding: 20px;
+      vertical-align: top;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 10px 0;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .sidebar a:hover {
+      background-color: #cd5c5c;
+    }
+
+    .banner {
+      font-size: 18px;
+      color: #d9534f;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .clock {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    marquee {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .menu img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .menu p {
+      margin-top: 8px;
+      text-align: center;
+    }
+
+  </style>
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours();
+      let greeting = "你好";
+      if (hours < 12) greeting = "上午好";
+      else if (hours < 18) greeting = "下午好";
+      else greeting = "晚上好";
+
+      document.getElementById("clock").innerHTML =
+        greeting + "，现在时间是：" + now.toLocaleTimeString();
+    }
+
+    setInterval(updateTime, 1000);
+    window.onload = updateTime;
+  </script>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="bgm/bgm.mp3" type="audio/mpeg">
+  </audio>
+
+  <table class="layout">
+    <tr>
+      <td class="sidebar">
+		<a href="模板.html">备用首页</a>
+        <a href="index.html">首页</a>
+        <a href="frame.html">菜单</a>
+        <a href="order.html">预订</a>
+        <a href="about.html">关于我们</a>
+	    <h4>内容页</h4>
+		<a href="video.html">视频</a>
+		<a href="layout.html">品质保证</a>
+		<a href="jstexiao.html">彩蛋1</a>
+		<a href="xwtexiao2.html">彩蛋2</a>
+
+      </td>
+      <td class="main">
+        <div id="clock" class="clock"></div>
+        <marquee behavior="scroll" direction="left">欢迎来到好吃蛋糕店！每日新鲜出炉，用心做好每一块蛋糕！</marquee>
+        <div class="banner">提前预定享受 10% 折扣优惠</div>
+        <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; text-align: center; background-color: #fff;">
+  <tr>
+    <th>图片</th>
+    <th>蛋糕名称</th>
+    <th>简介</th>
+  </tr>
+  <tr>
+    <td><img src="照片-2/IMG_7880.jpeg" alt="水果蛋糕" width="150" height="150"></td>
+    <td>水果蛋糕</td>
+    <td>新鲜水果搭配轻盈奶油，口感酸甜适中</td>
+  </tr>
+  <tr>
+    <td><img src="照片-2/IMG_7881.jpeg" alt="布丁蛋糕" width="150" height="150"></td>
+    <td>布丁蛋糕</td>
+    <td>蛋香浓郁，入口即化，是小朋友的最爱</td>
+  </tr>
+  <tr>
+    <td><img src="照片-2/IMG_7892.jpeg" alt="奶油蛋糕" width="155" height="150"></td>
+    <td>奶油蛋糕</td>
+    <td>细腻奶油与海绵胚完美融合，经典不败</td>
+  </tr>
+  <tr>
+    <td><img src="照片-2/IMG_7883.jpeg" alt="混合蛋糕" width="150" height="150"></td>
+    <td>混合蛋糕</td>
+    <td>多种口味组合，一次满足全部愿望</td>
+  </tr>
+</table>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

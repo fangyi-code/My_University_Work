@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>关于我们 - 好吃蛋糕店</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <style>
+    body {
+      background-color: #fffaf0;
+      font-family: "微软雅黑", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff0f5;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d1477f;
+    }
+
+    .intro {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .images {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .images img {
+      width: 220px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      color: #d1477f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #accordion {
+      margin-top: 40px;
+    }
+
+    #accordion h3 {
+      color: #d1477f;
+      font-size: 18px;
+    }
+
+    #accordion div {
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>关于好吃蛋糕店</h1>
+
+    <div class="intro">
+      <p>欢迎来到好吃蛋糕店！我们专注于制作温暖、纯正、甜而不腻的蛋糕。</p>
+    </div>
+
+    <!-- jQuery UI 折叠面板 -->
+    <div id="accordion">
+      <h3>我们的故事</h3>
+      <div>
+        <p>
+          好吃蛋糕店创立于2025年，由一位对甜品充满热情的女孩——小方亲手创办。<br>
+          她相信，蛋糕不仅是味蕾的享受，更是一种情绪的传递、一份美好的仪式感。
+        </p>
+      </div>
+
+      <h3>我们的理念</h3>
+      <div>
+        <p>
+          我们坚持使用天然食材、每日现购水果，杜绝任何廉价添加剂。<br>
+          所有蛋糕均为手工制作，每一份都带着温度、细节和诚意。
+        </p>
+      </div>
+    </div>
+
+    <div class="images">
+      <img src="照片-2/IMG_7894.jpeg" alt="蛋糕店照片1">
+      <img src="照片-2/IMG_7881.jpeg" alt="蛋糕店照片2">
+      <img src="照片-2/IMG_7879.jpeg" alt="蛋糕陈列">
+    </div>
+
+    <a href="index.html">返回首页</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $("#accordion").accordion();
+    });
+  </script>
+</body>
+</html>

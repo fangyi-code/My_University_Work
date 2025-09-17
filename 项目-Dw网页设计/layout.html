@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>蛋糕店展示 - 层布局示范页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "微软雅黑", sans-serif;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url('照片-2/IMG_7874.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+      filter: brightness(0.6);
+    }
+
+    .title {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #f08080;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .description {
+      position: absolute;
+      top: 120px;
+      left: 40px;
+      width: 40%;
+      color: white;
+      font-size: 16px;
+      line-height: 1.6;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="title">好吃蛋糕屋 · 品质承诺</div>
+  <div class="description">
+    <p>我们坚持每日手工制作，精选新鲜天然食材。无添加防腐剂，无人工色素。</p>
+    <p>蛋糕不仅是甜点，更是你生活中值得纪念的一刻。</p>
+	   <a href="index.html">返回首页</a>
+  </div>
+  <button class="button" onclick="alert('欢迎订购您的专属定制蛋糕！')">立即订购</button>
+
+</body>
+</html>
