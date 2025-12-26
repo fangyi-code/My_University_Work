@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>蛋糕预订 - 好吃蛋糕店</title>
+  <style>
+    body {
+      background-color: #fffaf0;
+      font-family: "微软雅黑", sans-serif;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d1477f;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #f08080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cd5c5c;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #d1477f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function showSuccess() {
+      alert("预订信息已提交，感谢您的光临！");
+    }
+  </script>
+</head>
+<body>
+  <h1>在线预订蛋糕</h1>
+  <form onsubmit="showSuccess(); return false;">
+    <label for="name">姓名</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">联系电话</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="cake">蛋糕类型</label>
+    <select id="cake" name="cake">
+      <option>水果蛋糕</option>
+      <option>布丁蛋糕</option>
+      <option>奶油蛋糕</option>
+      <option>混合蛋糕</option>
+    </select>
+
+    <label for="size">尺寸选择</label>
+    <select id="size" name="size">
+      <option>6寸</option>
+      <option>8寸</option>
+      <option>10寸</option>
+    </select>
+
+    <label>是否需要写字</label>
+    <input type="radio" name="words" value="需要"> 需要
+    <input type="radio" name="words" value="不需要" checked> 不需要
+
+    <label for="date">取货日期</label>
+    <input type="date" id="date" name="date">
+
+    <label for="note">留言</label>
+    <textarea id="note" name="note" rows="4" ></textarea>
+
+    <button type="submit">提交预订</button>
+  </form>
+
+  <a href="index.html">返回首页</a>
+</body>
+</html>

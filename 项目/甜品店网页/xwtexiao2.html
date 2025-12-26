@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>鼠标特效 - 好吃蛋糕店</title>
+  <style>
+    body {
+      font-family: "微软雅黑", sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      cursor: none; /* 隐藏默认鼠标指针 */
+    }
+
+    .cursor {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: rgba(255, 105, 180, 0.8);
+      position: absolute;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.2s;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 100px;
+      color: #d1477f;
+    }
+
+    a {
+      display: block;
+      margin-top: 80px;
+      text-align: center;
+      color: #f08080;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>凭鼠标圆点截图，到店可免费领取店主手作柠檬红茶一杯</h1>
+
+  <div class="cursor" id="cursor"></div>
+
+  <a href="index.html">返回首页</a>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    document.addEventListener('mousedown', () => {
+      cursor.style.backgroundColor = 'rgba(30, 144, 255, 0.8)'; // 按下变蓝
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursor.style.backgroundColor = 'rgba(255, 105, 180, 0.8)'; // 松开恢复
+    });
+  </script>
+</body>
+</html>
