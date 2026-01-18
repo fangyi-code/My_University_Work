@@ -80,7 +80,7 @@ class StudentManagementGUI:
         operations = [
             ("➕ 添加学生", self.show_add_form),
             ("✏️ 修改学生", self.show_update_form),
-            ("🗑️ 删除学生", self.show_delete_form),
+            ("🗑️删除学生", self.show_delete_form),
             ("🔍 查询学生", self.show_query_form),
             ("📊 统计报告", self.show_statistics),
             ("📋 显示所有", self.show_all_students),
@@ -121,7 +121,7 @@ class StudentManagementGUI:
 
         form_window = tk.Toplevel(self.root)
         form_window.title("添加学生")
-        form_window.geometry("400x400")
+        form_window.geometry("400x430")  # 增加高度以容纳提示信息
 
         # 表单字段
         fields = [
@@ -153,9 +153,30 @@ class StudentManagementGUI:
                 entry.grid(row=i, column=1, padx=10, pady=10)
                 entries[key] = entry
 
-        # 添加按钮
+        # === 新增：班级和电话填写提示（放在同一行）===
+        hint_frame = ttk.Frame(form_window)
+        hint_frame.grid(row=len(fields), column=0, columnspan=2, pady=(5, 0))
+
+        # 班级提示
+        class_hint = ttk.Label(
+            hint_frame,
+            text="班级如：一班、1班、二班",
+            foreground="gray",
+            font=("Arial", 9)
+        )
+        class_hint.pack(side=tk.LEFT, padx=(0, 20))
+
+        # 电话提示
+        phone_hint = ttk.Label(
+            hint_frame,
+            text="电话：11位数字",
+            foreground="gray",
+            font=("Arial", 9)
+        )
+        phone_hint.pack(side=tk.LEFT)
+        # 添加按钮（注意行号需要+1，因为有提示行）
         button_frame = ttk.Frame(form_window)
-        button_frame.grid(row=len(fields), column=0, columnspan=2, pady=20)
+        button_frame.grid(row=len(fields) + 1, column=0, columnspan=2, pady=20)
 
         ttk.Button(
             button_frame,
@@ -325,7 +346,7 @@ class StudentManagementGUI:
                     success = self.student_manager.update_student(student.student_id, **update_data)
 
                     if success:
-                        self.append_result(f"✅ 成功更新学生 {student.name} 的信息")
+                        self.append_result(f"✅成功更新学生 {student.name} 的信息")
                         self.status_var.set(f"更新成功 - {student.name}")
                         window.destroy()
 
