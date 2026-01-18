@@ -1,3 +1,4 @@
+
 """
 自然语言处理模块
 解析用户输入的自然语言指令
@@ -84,8 +85,8 @@ class NaturalLanguageProcessor:
         elif '女' in text or '女生' in text:
             params['gender'] = '女'
 
-        # 提取班级
-        class_match = re.search(r'(\S+班)', text)
+        # 提取班级 - 修复正则表达式
+        class_match = re.search(r'([一二三四五六七八九十\d]+班)', text)
         if class_match:
             params['class_name'] = class_match.group(1)
 
@@ -108,7 +109,7 @@ class NaturalLanguageProcessor:
 
         # 提取要修改的字段和值
         if '班级' in text:
-            class_match = re.search(r'改成?\s*(\S+班)', text)
+            class_match = re.search(r'改成?\s*([一二三四五六七八九十\d]+班)', text)
             if class_match:
                 params['class_name'] = class_match.group(1)
 
@@ -148,8 +149,8 @@ class NaturalLanguageProcessor:
             params['query_type'] = 'exact'
             return params
 
-        # 班级查询
-        class_match = re.search(r'(\S+班)', text)
+        # 班级查询 - 修复正则表达式
+        class_match = re.search(r'([一二三四五六七八九十\d]+班)', text)
         if class_match:
             params['class_name'] = class_match.group(1)
 
@@ -181,8 +182,8 @@ class NaturalLanguageProcessor:
         if '多少' in text or '数量' in text:
             params['stat_type'] = 'count'
 
-            # 提取班级
-            class_match = re.search(r'(\S+班)', text)
+            # 提取班级 - 修复正则表达式
+            class_match = re.search(r'([一二三四五六七八九十\d]+班)', text)
             if class_match:
                 params['class_name'] = class_match.group(1)
 
@@ -205,35 +206,35 @@ class NaturalLanguageProcessor:
         """格式化响应文本"""
         if operation == 'add':
             if result:
-                return f"✅ 成功添加学生：{params.get('name', '')} (学号: {params.get('student_id', '')})"
+                return f"[成功] 添加学生：{params.get('name', '')} (学号: {params.get('student_id', '')})"
             else:
-                return f"❌ 添加失败：学号 {params.get('student_id', '')} 已存在"
+                return f"[失败] 添加失败：学号 {params.get('student_id', '')} 已存在"
 
         elif operation == 'update':
             if result:
-                return f"✅ 成功更新学号 {params.get('student_id', '')} 的学生信息"
+                return f"[成功] 更新学号 {params.get('student_id', '')} 的学生信息"
             else:
-                return f"❌ 更新失败：未找到学号 {params.get('student_id', '')} 的学生"
+                return f"[失败] 更新失败：未找到学号 {params.get('student_id', '')} 的学生"
 
         elif operation == 'delete':
             if result:
-                return f"✅ 成功删除学号 {params.get('student_id', '')} 的学生"
+                return f"[成功] 删除学号 {params.get('student_id', '')} 的学生"
             else:
-                return f"❌ 删除失败：未找到学号 {params.get('student_id', '')} 的学生"
+                return f"[失败] 删除失败：未找到学号 {params.get('student_id', '')} 的学生"
 
         elif operation == 'query':
             if isinstance(result, list):
                 if len(result) == 0:
-                    return "🔍 未找到符合条件的学生"
+                    return "[查询] 未找到符合条件的学生"
                 else:
                     students_info = "\n".join([f"  • {str(s)}" for s in result])
-                    return f"🔍 找到 {len(result)} 名学生：\n{students_info}"
+                    return f"[查询] 找到 {len(result)} 名学生：\n{students_info}"
             elif result:
-                return f"🔍 查询结果：\n  • {str(result)}"
+                return f"[查询] 查询结果：\n  • {str(result)}"
             else:
-                return "🔍 未找到该学生"
+                return "[查询] 未找到该学生"
 
         elif operation == 'statistics':
             return result if isinstance(result, str) else str(result)
 
-        return "❓ 无法识别您的指令"
+        return "[帮助] 无法识别您的指令"
