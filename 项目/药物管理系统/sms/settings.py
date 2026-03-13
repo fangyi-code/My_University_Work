@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+=h=@z@n^ctovtdd%vj*aowbpbb6w-6d3wd3^wwi9y&zhv*)-&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -77,12 +77,16 @@ WSGI_APPLICATION = 'sms.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+  'default': {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'fysms',   # 数据库名
+      'USER': 'fangyi',    # 数据库 用户名
+      'PASSWORD': 'luoyu2004918',# 数据库 用户密码
+      'HOST': '127.0.0.1', # 数据库服务主机名
+      'PORT': '3306',      # 数据库服务端口
+      'CONN_MAX_AGE': 0
+  }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -119,3 +123,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+VERSION = '1.5'
